@@ -14,17 +14,17 @@
             android:layout_height="match_parent"
             app:scv_frame_stroke_weight="1dp"
             app:scv_guide_stroke_weight="1dp"
-            app:scv_crop_mode="?attr/crop.mode"
-            app:scv_handle_size="?attr/crop.handle.size"
-            app:scv_touch_padding="?attr/crop.touch.padding"
-            app:scv_handle_show_mode="?attr/crop.handle.show.mode"
-            app:scv_guide_show_mode="?attr/crop.guide.show.mode"
-            app:scv_min_frame_size="?attr/crop.min.frame.size"
-            app:scv_background_color="?attr/crop.background.color"
-            app:scv_handle_color="?attr/crop.handle.color"
-            app:scv_overlay_color="?attr/crop.overlay.color"
-            app:scv_frame_color="?attr/crop.frame.color"
-            app:scv_initial_frame_scale="?attr/crop.initial.frame.scale"
+            app:scv_crop_mode="square"
+            app:scv_handle_size="10dp"
+            app:scv_touch_padding="12dp"
+            app:scv_handle_show_mode="show_always"
+            app:scv_guide_show_mode="not_show"
+            app:scv_min_frame_size="240dp"
+            app:scv_background_color="#000000"
+            app:scv_handle_color="#FFFFFF"
+            app:scv_overlay_color="#aa1c1c1c"
+            app:scv_frame_color="#FFFFFF"
+            app:scv_initial_frame_scale="1"
             />
 
     <FrameLayout
@@ -47,7 +47,7 @@
                 android:padding="16dp"
                 android:layout_gravity="start"
                 android:text="@string/button_back"
-                android:textColor="?attr/preview.bottomToolbar.back.textColor"
+                android:textColor="@color/tongzhuo_preview_bottom_toolbar_back_text"
                 android:textSize="16sp"
                 />
 
@@ -89,7 +89,7 @@
                 android:layout_gravity="end"
                 android:foreground="?selectableItemBackground"
                 android:padding="16dp"
-                android:textColor="?attr/preview.bottomToolbar.apply.textColor"
+                android:textColor="@color/tongzhuo_preview_bottom_toolbar_apply"
                 android:textSize="16sp"
                 android:text="@string/button_apply_default"
                 />

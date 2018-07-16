@@ -45,7 +45,7 @@ public final class SelectionSpec {
     public boolean openCameraNow;
 
     @StyleRes
-    public int themeId;
+    public int themeId = R.style.Matisse_Tongzhuo;
 
     public int orientation;
 
@@ -94,7 +94,7 @@ public final class SelectionSpec {
         mimeTypeSet = null;
         mediaTypeExclusive = true;
         showSingleMediaType = false;
-        themeId = R.style.Matisse_Zhihu;
+        themeId = R.style.Matisse_Tongzhuo;
         orientation = 0;
         countable = false;
         maxSelectable = 1;

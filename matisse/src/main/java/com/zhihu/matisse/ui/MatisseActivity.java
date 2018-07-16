@@ -15,7 +15,10 @@
  */
 package com.zhihu.matisse.ui;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.MemoryCategory;
 import com.zhihu.matisse.R;
+import com.zhihu.matisse.engine.impl.GlideEngine;
 import com.zhihu.matisse.internal.entity.Album;
 import com.zhihu.matisse.internal.entity.Item;
 import com.zhihu.matisse.internal.entity.SelectionSpec;
@@ -112,6 +115,10 @@ public class MatisseActivity extends AppCompatActivity implements
 
         if (mSpec.needOrientationRestriction()) {
             setRequestedOrientation(mSpec.orientation);
+        }
+
+        if (mSpec.imageEngine instanceof GlideEngine) {
+            Glide.get(this).setMemoryCategory(MemoryCategory.LOW);
         }
 
         if (mSpec.capture) {
@@ -299,15 +306,15 @@ public class MatisseActivity extends AppCompatActivity implements
         if (selectedCount == 0) {
             mButtonPreview.setEnabled(false);
             mButtonApply.setEnabled(false);
-            mButtonApply.setText(getString(R.string.button_sure_default));
+            mButtonApply.setText(getString(R.string.button_apply_default));
         } else if (selectedCount == 1 && mSpec.singleSelectionModeEnabled()) {
             mButtonPreview.setEnabled(true);
-            mButtonApply.setText(R.string.button_sure_default);
+            mButtonApply.setText(R.string.button_apply_default);
             mButtonApply.setEnabled(true);
         } else {
             mButtonPreview.setEnabled(true);
             mButtonApply.setEnabled(true);
-            mButtonApply.setText(getString(R.string.button_sure, selectedCount));
+            mButtonApply.setText(getString(R.string.button_apply, selectedCount));
         }
 
     }

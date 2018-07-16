@@ -29,4 +29,6 @@
     <string name="error_file_type">Dateityp nicht unterstützt</string>
     <string name="error_type_conflict">Sie können Bilder und Videos nicht gleichzeitig auswählen</string>
     <string name="error_no_video_activity">Keine App zur Videovorschau gefunden</string>
+
+    <string name="crop_clipping">loading...</string>
 </resources>

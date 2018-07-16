@@ -32,4 +32,6 @@
     <string name="error_file_type">Tipo di file non supportato</string>
     <string name="error_type_conflict">Non è possibile selezionare contemporaneamente immagini e video</string>
     <string name="error_no_video_activity">Non è stata trovata alcuna app che supporti l\'anteprima video</string>
+
+    <string name="crop_clipping">loading...</string>
 </resources>

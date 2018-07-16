@@ -156,6 +156,7 @@ public class CropActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         if (mDisposable != null) {
             mDisposable.dispose();
+            mDisposable = null;
         }
     }
 
@@ -196,7 +197,7 @@ public class CropActivity extends AppCompatActivity implements View.OnClickListe
                         mDialog.dismiss();
                     }
                 })
-                .subscribeOn(Schedulers.newThread())
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<File>() {
                     @Override

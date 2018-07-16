@@ -214,13 +214,13 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
             if (mSpec.maxSelectable != 1) {
                 mButtonApply.setEnabled(false);
             }
-            mButtonApply.setText(R.string.button_sure_default);
+            mButtonApply.setText(R.string.button_apply_default);
         } else if (selectedCount == 1 && mSpec.singleSelectionModeEnabled()) {
-            mButtonApply.setText(R.string.button_sure_default);
+            mButtonApply.setText(R.string.button_apply_default);
             mButtonApply.setEnabled(true);
         } else {
             mButtonApply.setEnabled(true);
-            mButtonApply.setText(getString(R.string.button_sure, selectedCount));
+            mButtonApply.setText(getString(R.string.button_apply, selectedCount));
         }
     }
 

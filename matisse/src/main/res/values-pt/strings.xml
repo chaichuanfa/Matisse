@@ -32,4 +32,6 @@
     <string name="error_file_type">Tipo de arquivo não suportado</string>
     <string name="error_type_conflict">Não é possível selecionar arquivos de imagem e vídeo simultaneamente</string>
     <string name="error_no_video_activity">Nenhum player de vídeo disponível para reprodução</string>
+
+    <string name="crop_clipping">loading...</string>
 </resources>

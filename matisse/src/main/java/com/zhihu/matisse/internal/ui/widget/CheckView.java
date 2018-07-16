@@ -15,8 +15,9 @@
  */
 package com.zhihu.matisse.internal.ui.widget;
 
+import com.zhihu.matisse.R;
+
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -32,27 +33,42 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.zhihu.matisse.R;
-
 public class CheckView extends View {
 
     public static final int UNCHECKED = Integer.MIN_VALUE;
+
     private static final float STROKE_WIDTH = 3.0f; // dp
+
     private static final float SHADOW_WIDTH = 6.0f; // dp
+
     private static final int SIZE = 48; // dp
+
     private static final float STROKE_RADIUS = 11.5f; // dp
+
     private static final float BG_RADIUS = 11.0f; // dp
+
     private static final int CONTENT_SIZE = 16; // dp
+
     private boolean mCountable;
+
     private boolean mChecked;
+
     private int mCheckedNum;
+
     private Paint mStrokePaint;
+
     private Paint mBackgroundPaint;
+
     private TextPaint mTextPaint;
+
     private Paint mShadowPaint;
+
     private Drawable mCheckDrawable;
+
     private float mDensity;
+
     private Rect mCheckRect;
+
     private boolean mEnabled = true;
 
     public CheckView(Context context) {
@@ -85,13 +101,8 @@ public class CheckView extends View {
         mStrokePaint.setStyle(Paint.Style.STROKE);
         mStrokePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
         mStrokePaint.setStrokeWidth(STROKE_WIDTH * mDensity);
-        TypedArray ta = getContext().getTheme().obtainStyledAttributes(new int[]{R.attr.item_checkCircle_borderColor});
-        int defaultColor = ResourcesCompat.getColor(
-                getResources(), R.color.zhihu_item_checkCircle_borderColor,
-                getContext().getTheme());
-        int color = ta.getColor(0, defaultColor);
-        ta.recycle();
-        mStrokePaint.setColor(color);
+        mStrokePaint.setColor(
+                context.getResources().getColor(R.color.tongzhuo_item_checkCircle_borderColor));
 
         mCheckDrawable = ResourcesCompat.getDrawable(context.getResources(),
                 R.drawable.ic_check_white_18dp, context.getTheme());
@@ -99,7 +110,8 @@ public class CheckView extends View {
 
     public void setChecked(boolean checked) {
         if (mCountable) {
-            throw new IllegalStateException("CheckView is countable, call setCheckedNum() instead.");
+            throw new IllegalStateException(
+                    "CheckView is countable, call setCheckedNum() instead.");
         }
         mChecked = checked;
         invalidate();
@@ -111,7 +123,8 @@ public class CheckView extends View {
 
     public void setCheckedNum(int checkedNum) {
         if (!mCountable) {
-            throw new IllegalStateException("CheckView is not countable, call setChecked() instead.");
+            throw new IllegalStateException(
+                    "CheckView is not countable, call setChecked() instead.");
         }
         if (checkedNum != UNCHECKED && checkedNum <= 0) {
             throw new IllegalArgumentException("checked num can't be negative.");
@@ -149,7 +162,8 @@ public class CheckView extends View {
                 initTextPaint();
                 String text = String.valueOf(mCheckedNum);
                 int baseX = (int) (canvas.getWidth() - mTextPaint.measureText(text)) / 2;
-                int baseY = (int) (canvas.getHeight() - mTextPaint.descent() - mTextPaint.ascent()) / 2;
+                int baseY = (int) (canvas.getHeight() - mTextPaint.descent() - mTextPaint.ascent())
+                        / 2;
                 canvas.drawText(text, baseX, baseY, mTextPaint);
             }
         } else {
@@ -195,13 +209,8 @@ public class CheckView extends View {
             mBackgroundPaint = new Paint();
             mBackgroundPaint.setAntiAlias(true);
             mBackgroundPaint.setStyle(Paint.Style.FILL);
-            TypedArray ta = getContext().getTheme()
-                    .obtainStyledAttributes(new int[]{R.attr.item_checkCircle_backgroundColor});
-            int defaultColor = ResourcesCompat.getColor(
-                    getResources(), R.color.zhihu_item_checkCircle_backgroundColor,
-                    getContext().getTheme());
-            int color = ta.getColor(0, defaultColor);
-            ta.recycle();
+            int color = getContext().getResources()
+                    .getColor(R.color.tongzhuo_item_checkCircle_backgroundColor);
             mBackgroundPaint.setColor(color);
         }
     }

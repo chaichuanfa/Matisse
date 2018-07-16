@@ -17,4 +17,6 @@
     <string name="error_file_type">نوع ملف غير مدعوم</string>
     <string name="error_type_conflict">لا يمكن تحديد الصور ومقاطع الفيديو في نفس الوقت</string>
     <string name="error_no_video_activity">لم يتم العثور على التطبيق دعم معاينة الفيديو</string>
+
+    <string name="crop_clipping">loading...</string>
 </resources>

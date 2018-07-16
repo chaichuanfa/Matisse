@@ -46,7 +46,7 @@
                 android:padding="16dp"
                 android:layout_gravity="start"
                 android:text="@string/button_back"
-                android:textColor="?attr/preview.bottomToolbar.back.textColor"
+                android:textColor="@color/tongzhuo_preview_bottom_toolbar_back_text"
                 android:textSize="16sp"
                 />
 
@@ -68,7 +68,7 @@
                 android:layout_gravity="end"
                 android:foreground="?selectableItemBackground"
                 android:padding="16dp"
-                android:textColor="?attr/preview.bottomToolbar.apply.textColor"
+                android:textColor="@color/tongzhuo_preview_bottom_toolbar_apply"
                 android:textSize="16sp"
                 />
 

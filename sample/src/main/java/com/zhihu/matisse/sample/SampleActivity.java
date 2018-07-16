@@ -31,7 +31,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +78,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                 case R.id.zhihu:
                                     Matisse.from(SampleActivity.this)
                                             .choose(MimeType.ofAll(), false)
-                                            .theme(R.style.Matisse_Zhihu)
+                                            .theme(R.style.Matisse_Tongzhuo)
                                             .countable(true)
                                             .maxSelectable(9)
                                             .showSingleMediaType(true)
@@ -97,7 +96,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                 case R.id.dracula:
                                     Matisse.from(SampleActivity.this)
                                             .choose(MimeType.ofImage())
-                                            .theme(R.style.Matisse_Dracula)
+                                            .theme(R.style.Matisse_Tongzhuo)
                                             .countable(false)
                                             .maxSelectable(1)
                                             .spanCount(3)
@@ -154,7 +153,6 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_CHOOSE && resultCode == RESULT_OK) {
             mAdapter.setData(Matisse.obtainResult(data), Matisse.obtainPathResult(data));
-            Log.e("OnActivityResult ", String.valueOf(Matisse.obtainOriginalState(data)));
         }
     }
 

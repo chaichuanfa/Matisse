@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="?attr/bottomToolbar.bg"
+            android:background="@color/tongzhuo_bottom_toolbar_bg"
             android:elevation="4dp"
             tools:targetApi="lollipop"
             >
@@ -64,7 +64,7 @@
                 android:padding="16dp"
                 android:layout_gravity="start"
                 android:text="@string/button_preview"
-                android:textColor="?attr/bottomToolbar.preview.textColor"
+                android:textColor="@color/tongzhuo_bottom_toolbar_preview"
                 android:textSize="16sp"
                 />
 
@@ -75,7 +75,7 @@
                 android:layout_gravity="end"
                 android:foreground="?selectableItemBackground"
                 android:padding="16dp"
-                android:textColor="?attr/bottomToolbar.apply.textColor"
+                android:textColor="@color/tongzhuo_bottom_toolbar_apply"
                 android:textSize="16sp"
                 />
     </FrameLayout>
@@ -104,10 +104,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:drawablePadding="8dp"
-                android:drawableTop="?attr/album.emptyView"
+                android:drawableTop="@drawable/ic_empty_zhihu"
                 android:gravity="center"
                 android:text="@string/empty_text"
-                android:textColor="?attr/album.emptyView.textColor"
+                android:textColor="@color/tongzhuo_album_empty_view"
                 android:textSize="16sp"
                 />
 

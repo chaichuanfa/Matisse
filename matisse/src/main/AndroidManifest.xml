@@ -23,10 +23,26 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application>
-        <activity android:name=".ui.MatisseActivity"/>
-        <activity android:name=".internal.ui.AlbumPreviewActivity"/>
-        <activity android:name=".internal.ui.SelectedPreviewActivity"/>
-        <activity android:name=".internal.ui.CropActivity">
+        <activity
+                android:name=".ui.MatisseActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:screenOrientation="portrait"
+                />
+        <activity
+                android:name=".internal.ui.AlbumPreviewActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:screenOrientation="portrait"
+                />
+        <activity
+                android:name=".internal.ui.SelectedPreviewActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:screenOrientation="portrait"
+                />
+        <activity
+                android:name=".internal.ui.CropActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:screenOrientation="portrait"
+                >
         </activity>
     </application>
 

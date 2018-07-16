@@ -25,10 +25,10 @@ import com.zhihu.matisse.internal.ui.widget.CheckView;
 import com.zhihu.matisse.internal.ui.widget.MediaGrid;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,31 +42,38 @@ public class AlbumMediaAdapter extends
         MediaGrid.OnMediaGridClickListener {
 
     private static final int VIEW_TYPE_CAPTURE = 0x01;
+
     private static final int VIEW_TYPE_MEDIA = 0x02;
+
     private final SelectedItemCollection mSelectedCollection;
+
     private final Drawable mPlaceholder;
+
     private SelectionSpec mSelectionSpec;
+
     private CheckStateListener mCheckStateListener;
+
     private OnMediaClickListener mOnMediaClickListener;
+
     private RecyclerView mRecyclerView;
+
     private int mImageResize;
 
-    public AlbumMediaAdapter(Context context, SelectedItemCollection selectedCollection, RecyclerView recyclerView) {
+    public AlbumMediaAdapter(Context context, SelectedItemCollection selectedCollection,
+            RecyclerView recyclerView) {
         super(null);
         mSelectionSpec = SelectionSpec.getInstance();
         mSelectedCollection = selectedCollection;
 
-        TypedArray ta = context.getTheme().obtainStyledAttributes(new int[]{R.attr.item_placeholder});
-        mPlaceholder = ta.getDrawable(0);
-        ta.recycle();
-
+        mPlaceholder = ContextCompat.getDrawable(context, R.drawable.ic_placeholder);
         mRecyclerView = recyclerView;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == VIEW_TYPE_CAPTURE) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.photo_capture_item, parent, false);
+            View v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.photo_capture_item, parent, false);
             CaptureViewHolder holder = new CaptureViewHolder(v);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,7 +85,8 @@ public class AlbumMediaAdapter extends
             });
             return holder;
         } else if (viewType == VIEW_TYPE_MEDIA) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.media_grid_item, parent, false);
+            View v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.media_grid_item, parent, false);
             return new MediaViewHolder(v);
         }
         return null;
@@ -89,11 +97,6 @@ public class AlbumMediaAdapter extends
         if (holder instanceof CaptureViewHolder) {
             CaptureViewHolder captureViewHolder = (CaptureViewHolder) holder;
             Drawable[] drawables = captureViewHolder.mHint.getCompoundDrawables();
-            TypedArray ta = holder.itemView.getContext().getTheme().obtainStyledAttributes(
-                    new int[]{R.attr.capture_textColor});
-            int color = ta.getColor(0, 0);
-            ta.recycle();
-
             for (int i = 0; i < drawables.length; i++) {
                 Drawable drawable = drawables[i];
                 if (drawable != null) {
@@ -103,12 +106,16 @@ public class AlbumMediaAdapter extends
                     }
 
                     Drawable newDrawable = state.newDrawable().mutate();
-                    newDrawable.setColorFilter(color, PorterDuff.Mode.SRC_IN);
+                    newDrawable.setColorFilter(
+                            holder.itemView.getContext().getResources()
+                                    .getColor(R.color.tongzhuo_capture),
+                            PorterDuff.Mode.SRC_IN);
                     newDrawable.setBounds(drawable.getBounds());
                     drawables[i] = newDrawable;
                 }
             }
-            captureViewHolder.mHint.setCompoundDrawables(drawables[0], drawables[1], drawables[2], drawables[3]);
+            captureViewHolder.mHint
+                    .setCompoundDrawables(drawables[0], drawables[1], drawables[2], drawables[3]);
         } else if (holder instanceof MediaViewHolder) {
             MediaViewHolder mediaViewHolder = (MediaViewHolder) holder;
 
@@ -161,11 +168,11 @@ public class AlbumMediaAdapter extends
     @Override
     public void onThumbnailClicked(ImageView thumbnail, Item item, RecyclerView.ViewHolder holder) {
         if (mOnMediaClickListener != null) {
-            if(mSelectionSpec.singleMediaClosePreview()) {
+            if (mSelectionSpec.singleMediaClosePreview()) {
                 if (assertAddSelection(holder.itemView.getContext(), item)) {
                     mOnMediaClickListener.onMediaClick(null, item, holder.getAdapterPosition());
                 }
-            } else if(mSelectionSpec.singleMediaOpenPreview()) {
+            } else if (mSelectionSpec.singleMediaOpenPreview()) {
                 if (assertAddSelection(holder.itemView.getContext(), item)) {
                     mOnMediaClickListener.onMediaClick(null, item, holder.getAdapterPosition());
                 }
@@ -268,14 +275,17 @@ public class AlbumMediaAdapter extends
     }
 
     public interface CheckStateListener {
+
         void onUpdate();
     }
 
     public interface OnMediaClickListener {
+
         void onMediaClick(Album album, Item item, int adapterPosition);
     }
 
     public interface OnPhotoCapture {
+
         void capture();
     }
 
