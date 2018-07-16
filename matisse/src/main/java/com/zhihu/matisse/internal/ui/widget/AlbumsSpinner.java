@@ -15,9 +15,13 @@
  */
 package com.zhihu.matisse.internal.ui.widget;
 
+import com.zhihu.matisse.R;
+import com.zhihu.matisse.internal.entity.Album;
+import com.zhihu.matisse.internal.utils.Platform;
+
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
@@ -26,10 +30,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
-
-import com.zhihu.matisse.R;
-import com.zhihu.matisse.internal.entity.Album;
-import com.zhihu.matisse.internal.utils.Platform;
 
 public class AlbumsSpinner {
 
@@ -101,11 +101,7 @@ public class AlbumsSpinner {
         // tint dropdown arrow icon
         Drawable[] drawables = mSelected.getCompoundDrawables();
         Drawable right = drawables[2];
-        TypedArray ta = mSelected.getContext().getTheme().obtainStyledAttributes(
-                new int[]{R.attr.album_element_color});
-        int color = ta.getColor(0, 0);
-        ta.recycle();
-        right.setColorFilter(color, PorterDuff.Mode.SRC_IN);
+        right.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
 
         mSelected.setVisibility(View.GONE);
         mSelected.setOnClickListener(new View.OnClickListener() {
