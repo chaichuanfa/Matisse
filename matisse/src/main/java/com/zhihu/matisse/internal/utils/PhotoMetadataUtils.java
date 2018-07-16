@@ -38,6 +38,9 @@ import android.util.Log;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public final class PhotoMetadataUtils {
 
@@ -170,12 +173,11 @@ public final class PhotoMetadataUtils {
     }
 
     public static float getSizeInMB(long sizeInBytes) {
-        float size = 0;
-        try {
-            size = (float) (Math.round(sizeInBytes / 1024 / 1024 * 10)) / 10;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return size;
+        DecimalFormat df = (DecimalFormat) NumberFormat.getNumberInstance(Locale.US);
+        df.applyPattern("0.0");
+        String result = df.format((float) sizeInBytes / 1024 / 1024);
+        Log.e(TAG, "getSizeInMB: " + result);
+        result = result.replaceAll(",", "."); // in some case , 0.0 will be 0,0
+        return Float.valueOf(result);
     }
 }
