@@ -15,13 +15,13 @@
  */
 package com.zhihu.matisse;
 
+import com.zhihu.matisse.ui.MatisseActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-
-import com.zhihu.matisse.ui.MatisseActivity;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -94,17 +94,6 @@ public final class Matisse {
      */
     public static List<String> obtainPathResult(Intent data) {
         return data.getStringArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_PATH);
-    }
-
-    /**
-     * Obtain state whether user decide to use selected media in original
-     *
-     * @param data Intent passed by {@link Activity#onActivityResult(int, int, Intent)} or
-     *             {@link Fragment#onActivityResult(int, int, Intent)}.
-     * @return Whether use original photo
-     */
-    public static boolean obtainOriginalState(Intent data) {
-        return data.getBooleanExtra(MatisseActivity.EXTRA_RESULT_ORIGINAL_ENABLE, false);
     }
 
     /**

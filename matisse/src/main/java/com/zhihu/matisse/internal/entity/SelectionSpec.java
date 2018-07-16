@@ -70,10 +70,11 @@ public final class SelectionSpec {
     public float thumbnailScale;
 
     public ImageEngine imageEngine;
+
     public boolean hasInited;
+
     public OnSelectedListener onSelectedListener;
-    public boolean originalable;
-    public int originalMaxSize;
+
     public OnCheckedListener onCheckedListener;
 
     private SelectionSpec() {
@@ -110,8 +111,6 @@ public final class SelectionSpec {
         openCameraNow = false;
         imageEngine = new GlideEngine();
         hasInited = true;
-        originalable = false;
-        originalMaxSize = Integer.MAX_VALUE;
     }
 
     public boolean singleSelectionModeEnabled() {

@@ -69,15 +69,11 @@ public class MatisseActivity extends AppCompatActivity implements
 
     public static final String EXTRA_RESULT_SELECTION_PATH = "extra_result_selection_path";
 
-    public static final String EXTRA_RESULT_ORIGINAL_ENABLE = "extra_result_original_enable";
-
     private static final int REQUEST_CODE_PREVIEW = 23;
 
     private static final int REQUEST_CODE_CAPTURE = 24;
 
     private static final int REQUEST_CODE_CROP = 25;
-
-    public static final String CHECK_STATE = "checkState";
 
     private final AlbumCollection mAlbumCollection = new AlbumCollection();
 

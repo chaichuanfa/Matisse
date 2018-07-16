@@ -28,7 +28,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,16 +37,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.zhihu.matisse.Matisse;
-import com.zhihu.matisse.MimeType;
-import com.zhihu.matisse.engine.impl.GlideEngine;
-import com.zhihu.matisse.engine.impl.PicassoEngine;
-import com.zhihu.matisse.filter.Filter;
-import com.zhihu.matisse.internal.entity.CaptureStrategy;
-import com.zhihu.matisse.listener.OnCheckedListener;
-import com.zhihu.matisse.listener.OnSelectedListener;
 
 import java.util.List;
 
@@ -128,11 +117,13 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                             .spanCount(3)
                                             .capture(true)
                                             .captureStrategy(
-                                                    new CaptureStrategy(true, "com.zhihu.matisse.sample.fileprovider"))
+                                                    new CaptureStrategy(true,
+                                                            "com.zhihu.matisse.sample.fileprovider"))
                                             .thumbnailScale(0.85f)
                                             .singleMediaPreview(true)
-                                            .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-                                            .singleImageCrop(false)
+                                            .restrictOrientation(
+                                                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                                            .singleImageCrop(true)
                                             .showSingleMediaType(true)
                                             .imageEngine(new GlideEngine())
                                             .forResult(REQUEST_CODE_CHOOSE);
@@ -140,7 +131,8 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                             }
                             mAdapter.setData(null, null);
                         } else {
-                            Toast.makeText(SampleActivity.this, R.string.permission_request_denied, Toast.LENGTH_LONG)
+                            Toast.makeText(SampleActivity.this, R.string.permission_request_denied,
+                                    Toast.LENGTH_LONG)
                                     .show();
                         }
                     }
@@ -169,6 +161,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
     private static class UriAdapter extends RecyclerView.Adapter<UriAdapter.UriViewHolder> {
 
         private List<Uri> mUris;
+
         private List<String> mPaths;
 
         void setData(List<Uri> uris, List<String> paths) {
@@ -180,7 +173,8 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
         @Override
         public UriViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new UriViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(R.layout.uri_item, parent, false));
+                    LayoutInflater.from(parent.getContext())
+                            .inflate(R.layout.uri_item, parent, false));
         }
 
         @Override
@@ -200,6 +194,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
         static class UriViewHolder extends RecyclerView.ViewHolder {
 
             private TextView mUri;
+
             private TextView mPath;
 
             UriViewHolder(View contentView) {

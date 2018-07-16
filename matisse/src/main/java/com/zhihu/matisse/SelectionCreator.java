@@ -20,6 +20,8 @@ import com.zhihu.matisse.engine.ImageEngine;
 import com.zhihu.matisse.filter.Filter;
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
 import com.zhihu.matisse.internal.entity.SelectionSpec;
+import com.zhihu.matisse.listener.OnCheckedListener;
+import com.zhihu.matisse.listener.OnSelectedListener;
 import com.zhihu.matisse.ui.MatisseActivity;
 
 import android.app.Activity;
@@ -31,14 +33,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.StyleRes;
 import android.support.v4.app.Fragment;
-
-import com.zhihu.matisse.engine.ImageEngine;
-import com.zhihu.matisse.filter.Filter;
-import com.zhihu.matisse.internal.entity.CaptureStrategy;
-import com.zhihu.matisse.internal.entity.SelectionSpec;
-import com.zhihu.matisse.listener.OnCheckedListener;
-import com.zhihu.matisse.listener.OnSelectedListener;
-import com.zhihu.matisse.ui.MatisseActivity;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -246,28 +240,6 @@ public final class SelectionCreator {
 
     public SelectionCreator openCameraNow(boolean enable) {
         mSelectionSpec.openCameraNow = enable;
-        return this;
-    }
-
-    /**
-     * Show a original photo check options.Let users decide whether use original photo after select
-     *
-     * @param enable Whether to enable original photo or not
-     * @return {@link SelectionCreator} for fluent API.
-     */
-    public SelectionCreator originalEnable(boolean enable) {
-        mSelectionSpec.originalable = enable;
-        return this;
-    }
-
-    /**
-     * Maximum original size,the unit is MB. Only useful when {link@originalEnable} set true
-     *
-     * @param size Maximum original size. Default value is Integer.MAX_VALUE
-     * @return {@link SelectionCreator} for fluent API.
-     */
-    public SelectionCreator maxOriginalSize(int size) {
-        mSelectionSpec.originalMaxSize = size;
         return this;
     }
 

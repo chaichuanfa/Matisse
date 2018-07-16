@@ -39,20 +39,25 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
         ViewPager.OnPageChangeListener {
 
     public static final String EXTRA_DEFAULT_BUNDLE = "extra_default_bundle";
+
     public static final String EXTRA_RESULT_BUNDLE = "extra_result_bundle";
+
     public static final String EXTRA_RESULT_APPLY = "extra_result_apply";
-    public static final String EXTRA_RESULT_ORIGINAL_ENABLE = "extra_result_original_enable";
-    public static final String CHECK_STATE = "checkState";
 
     protected final SelectedItemCollection mSelectedCollection = new SelectedItemCollection(this);
+
     protected SelectionSpec mSpec;
+
     protected ViewPager mPager;
 
     protected PreviewPagerAdapter mAdapter;
 
     protected CheckView mCheckView;
+
     protected TextView mButtonBack;
+
     protected TextView mButtonApply;
+
     protected TextView mSize;
 
     protected int mPreviousPos = -1;
@@ -93,7 +98,7 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
         mPager.setAdapter(mAdapter);
         mCheckView = (CheckView) findViewById(R.id.check_view);
         mCheckView.setCountable(mSpec.countable);
-        if(mSpec.maxSelectable == 1) {
+        if (mSpec.maxSelectable == 1) {
             mCheckView.setVisibility(View.GONE);
         }
 
@@ -123,7 +128,8 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
 
                 if (mSpec.onSelectedListener != null) {
                     mSpec.onSelectedListener.onSelected(
-                            mSelectedCollection.asListOfUri(), mSelectedCollection.asListOfString());
+                            mSelectedCollection.asListOfUri(),
+                            mSelectedCollection.asListOfString());
                 }
             }
         });
@@ -148,7 +154,7 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
         if (v.getId() == R.id.button_back) {
             onBackPressed();
         } else if (v.getId() == R.id.button_apply) {
-            if(mSpec.maxSelectable == 1) {
+            if (mSpec.maxSelectable == 1) {
                 Item item = mAdapter.getMediaItem(mPager.getCurrentItem());
                 if (assertAddSelection(item)) {
                     mSelectedCollection.add(item);
@@ -205,11 +211,10 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
         int selectedCount = mSelectedCollection.count();
         if (selectedCount == 0) {
             mButtonApply.setText(R.string.button_apply_default);
-            if(mSpec.maxSelectable != 1) {
+            if (mSpec.maxSelectable != 1) {
                 mButtonApply.setEnabled(false);
             }
             mButtonApply.setText(R.string.button_sure_default);
-            mButtonApply.setEnabled(false);
         } else if (selectedCount == 1 && mSpec.singleSelectionModeEnabled()) {
             mButtonApply.setText(R.string.button_sure_default);
             mButtonApply.setEnabled(true);
