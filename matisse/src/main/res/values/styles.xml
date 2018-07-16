@@ -24,7 +24,6 @@
         <item name="toolbar">@style/Toolbar.Zhihu</item>
         <item name="album.dropdown.title.color">@color/zhihu_album_dropdown_title_text</item>
         <item name="album.dropdown.count.color">@color/zhihu_album_dropdown_count_text</item>
-        <item name="album.element.color">@android:color/white</item>
         <item name="album.thumbnail.placeholder">@color/zhihu_album_dropdown_thumbnail_placeholder</item>
         <item name="album.emptyView">@drawable/ic_empty_zhihu</item>
         <item name="album.emptyView.textColor">@color/zhihu_album_empty_view</item>
@@ -69,7 +68,6 @@
         <item name="toolbar">@style/Toolbar.Tongzhuo</item>
         <item name="album.dropdown.title.color">@color/tongzhuo_album_dropdown_title_text</item>
         <item name="album.dropdown.count.color">@color/tongzhuo_album_dropdown_count_text</item>
-        <item name="album.element.color">@android:color/white</item>
         <item name="album.thumbnail.placeholder">@color/tongzhuo_album_dropdown_thumbnail_placeholder</item>
         <item name="album.emptyView">@drawable/ic_empty_zhihu</item>
         <item name="album.emptyView.textColor">@color/tongzhuo_album_empty_view</item>
@@ -116,7 +114,6 @@
         <item name="toolbar">@style/Toolbar.Dracula</item>
         <item name="album.dropdown.title.color">@color/dracula_album_dropdown_title_text</item>
         <item name="album.dropdown.count.color">@color/dracula_album_dropdown_count_text</item>
-        <item name="album.element.color">@android:color/white</item>
         <item name="album.thumbnail.placeholder">@color/dracula_album_dropdown_thumbnail_placeholder</item>
         <item name="album.emptyView">@drawable/ic_empty_dracula</item>
         <item name="album.emptyView.textColor">@color/dracula_album_empty_view</item>

@@ -16,6 +16,13 @@
  */
 package com.zhihu.matisse.internal.utils;
 
+import com.zhihu.matisse.MimeType;
+import com.zhihu.matisse.R;
+import com.zhihu.matisse.filter.Filter;
+import com.zhihu.matisse.internal.entity.IncapableCause;
+import com.zhihu.matisse.internal.entity.Item;
+import com.zhihu.matisse.internal.entity.SelectionSpec;
+
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -28,21 +35,16 @@ import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
-import com.zhihu.matisse.MimeType;
-import com.zhihu.matisse.R;
-import com.zhihu.matisse.filter.Filter;
-import com.zhihu.matisse.internal.entity.Item;
-import com.zhihu.matisse.internal.entity.SelectionSpec;
-import com.zhihu.matisse.internal.entity.IncapableCause;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DecimalFormat;
 
 public final class PhotoMetadataUtils {
+
     private static final String TAG = PhotoMetadataUtils.class.getSimpleName();
+
     private static final int MAX_WIDTH = 1600;
+
     private static final String SCHEME_CONTENT = "content";
 
     private PhotoMetadataUtils() {
@@ -63,7 +65,9 @@ public final class PhotoMetadataUtils {
             w = imageSize.y;
             h = imageSize.x;
         }
-        if (h == 0) return new Point(MAX_WIDTH, MAX_WIDTH);
+        if (h == 0) {
+            return new Point(MAX_WIDTH, MAX_WIDTH);
+        }
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
         float screenWidth = (float) metrics.widthPixels;
@@ -166,6 +170,12 @@ public final class PhotoMetadataUtils {
     }
 
     public static float getSizeInMB(long sizeInBytes) {
-        return Float.valueOf(new DecimalFormat("0.0").format((float) sizeInBytes / 1024 / 1024));
+        float size = 0;
+        try {
+            size = (float) (Math.round(sizeInBytes / 1024 / 1024 * 10)) / 10;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return size;
     }
 }

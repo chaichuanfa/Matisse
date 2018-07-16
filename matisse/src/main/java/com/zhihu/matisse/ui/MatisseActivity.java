@@ -359,14 +359,18 @@ public class MatisseActivity extends AppCompatActivity implements
 
             @Override
             public void run() {
-                cursor.moveToPosition(mAlbumCollection.getCurrentSelection());
-                mAlbumsSpinner.setSelection(MatisseActivity.this,
-                        mAlbumCollection.getCurrentSelection());
-                Album album = Album.valueOf(cursor);
-                if (album.isAll() && SelectionSpec.getInstance().capture) {
-                    album.addCaptureCount();
+                if (cursor.isClosed()) {
+                    finish();
+                } else {
+                    cursor.moveToPosition(mAlbumCollection.getCurrentSelection());
+                    mAlbumsSpinner.setSelection(MatisseActivity.this,
+                            mAlbumCollection.getCurrentSelection());
+                    Album album = Album.valueOf(cursor);
+                    if (album.isAll() && SelectionSpec.getInstance().capture) {
+                        album.addCaptureCount();
+                    }
+                    onAlbumSelected(album);
                 }
-                onAlbumSelected(album);
             }
         });
     }
