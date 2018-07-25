@@ -18,6 +18,7 @@ package com.zhihu.matisse.ui;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.MemoryCategory;
 import com.zhihu.matisse.R;
+import com.zhihu.matisse.base.BaseActivity;
 import com.zhihu.matisse.engine.impl.GlideEngine;
 import com.zhihu.matisse.internal.entity.Album;
 import com.zhihu.matisse.internal.entity.Item;
@@ -49,7 +50,6 @@ import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -62,7 +62,7 @@ import java.util.ArrayList;
  * Main Activity to display albums and media content (images/videos) in each album
  * and also support media selecting operations.
  */
-public class MatisseActivity extends AppCompatActivity implements
+public class MatisseActivity extends BaseActivity implements
         AlbumCollection.AlbumCallbacks, AdapterView.OnItemSelectedListener,
         MediaSelectionFragment.SelectionProvider, View.OnClickListener,
         AlbumMediaAdapter.CheckStateListener, AlbumMediaAdapter.OnMediaClickListener,

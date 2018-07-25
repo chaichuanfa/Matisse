@@ -37,6 +37,7 @@ import android.support.v4.app.Fragment;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Set;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_BEHIND;
@@ -351,6 +352,11 @@ public final class SelectionCreator {
      */
     public SelectionCreator setOnCheckedListener(@Nullable OnCheckedListener listener) {
         mSelectionSpec.onCheckedListener = listener;
+        return this;
+    }
+
+    public SelectionCreator setLocale(@NonNull Locale locale) {
+        mSelectionSpec.locale = locale;
         return this;
     }
 

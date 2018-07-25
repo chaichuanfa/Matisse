@@ -2,6 +2,7 @@ package com.zhihu.matisse.internal.ui;
 
 import com.isseiaoki.simplecropview.CropImageView;
 import com.zhihu.matisse.R;
+import com.zhihu.matisse.base.BaseActivity;
 import com.zhihu.matisse.internal.entity.SelectionSpec;
 import com.zhihu.matisse.internal.utils.BitmapUtils;
 import com.zhihu.matisse.internal.utils.PathUtils;
@@ -15,7 +16,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.opengl.GLES10;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -37,7 +37,7 @@ import io.reactivex.schedulers.Schedulers;
 
 import static com.zhihu.matisse.R.id.cropImageView;
 
-public class CropActivity extends AppCompatActivity implements View.OnClickListener {
+public class CropActivity extends BaseActivity implements View.OnClickListener {
 
     public static final String CROP_IMAGE_URI = "crop_image_uri";
 

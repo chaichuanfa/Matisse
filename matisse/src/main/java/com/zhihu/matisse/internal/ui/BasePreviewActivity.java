@@ -16,6 +16,7 @@
 package com.zhihu.matisse.internal.ui;
 
 import com.zhihu.matisse.R;
+import com.zhihu.matisse.base.BaseActivity;
 import com.zhihu.matisse.internal.entity.IncapableCause;
 import com.zhihu.matisse.internal.entity.Item;
 import com.zhihu.matisse.internal.entity.SelectionSpec;
@@ -30,12 +31,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-public abstract class BasePreviewActivity extends AppCompatActivity implements View.OnClickListener,
+public abstract class BasePreviewActivity extends BaseActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
 
     public static final String EXTRA_DEFAULT_BUNDLE = "extra_default_bundle";

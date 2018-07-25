@@ -38,6 +38,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.Locale;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -115,6 +116,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                             .maxSelectable(1)
                                             .spanCount(3)
                                             .capture(true)
+                                            .setLocale(Locale.FRENCH)
                                             .captureStrategy(
                                                     new CaptureStrategy(true,
                                                             "com.zhihu.matisse.sample.fileprovider"))

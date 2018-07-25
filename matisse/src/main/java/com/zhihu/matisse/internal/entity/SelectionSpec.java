@@ -28,6 +28,7 @@ import android.content.pm.ActivityInfo;
 import android.support.annotation.StyleRes;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 public final class SelectionSpec {
@@ -77,6 +78,8 @@ public final class SelectionSpec {
 
     public OnCheckedListener onCheckedListener;
 
+    public Locale locale;
+
     private SelectionSpec() {
     }
 
@@ -111,6 +114,7 @@ public final class SelectionSpec {
         openCameraNow = false;
         imageEngine = new GlideEngine();
         hasInited = true;
+        locale = null;
     }
 
     public boolean singleSelectionModeEnabled() {
