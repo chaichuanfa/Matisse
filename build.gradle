@@ -29,6 +29,11 @@ buildscript {
     }
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+def artifactory_username = properties.getProperty("artifactory_username")
+def artifactory_password = properties.getProperty("artifactory_password")
 allprojects {
     repositories {
         google()
@@ -39,6 +44,10 @@ allprojects {
         }
         maven {
             url "http://47.88.228.53:8081/artifactory/libs-release-local"
+            credentials {
+                username = artifactory_username
+                password = artifactory_password
+            }
         }
     }
 }
