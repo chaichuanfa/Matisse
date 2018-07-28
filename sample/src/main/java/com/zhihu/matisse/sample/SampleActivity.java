@@ -116,7 +116,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                             .maxSelectable(1)
                                             .spanCount(3)
                                             .capture(true)
-                                            .setLocale(Locale.FRENCH)
+                                            .setLocale(new Locale("th"))
                                             .captureStrategy(
                                                     new CaptureStrategy(true,
                                                             "com.zhihu.matisse.sample.fileprovider"))

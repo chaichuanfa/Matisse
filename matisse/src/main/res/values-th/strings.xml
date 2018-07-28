@@ -15,23 +15,23 @@
   limitations under the License.
   -->
 <resources>
-    <string name="album_name_all">All Media</string>
+    <string name="album_name_all">สื่อทั้งหมด</string>
 
-    <string name="button_preview">Preview</string>
-    <string name="button_apply_default">Apply</string>
-    <string name="button_apply">Apply(%1$d)</string>
-    <string name="button_back">Back</string>
-    <string name="photo_grid_capture">Camera</string>
-    <string name="empty_text">No media yet</string>
-    <string name="button_ok">OK</string>
+    <string name="button_preview">ดูตัวอย่าง</string>
+    <string name="button_apply_default">ใช้</string>
+    <string name="button_apply">ใช้(%1$d)</string>
+    <string name="button_back">กลับ</string>
+    <string name="photo_grid_capture">กล้อง</string>
+    <string name="empty_text">ยังไม่มีสื่อ</string>
+    <string name="button_ok">ตกลง</string>
 
-    <string name="error_over_count_default">You have reached max selectable</string>
-    <string name="error_over_count">You can only select up to %1$d media files</string>
-    <string name="error_under_quality">Under quality</string>
-    <string name="error_over_quality">Over quality</string>
-    <string name="error_file_type">Unsupported file type</string>
-    <string name="error_type_conflict">Can\'t select images and videos at the same time</string>
-    <string name="error_no_video_activity">No App found supporting video preview</string>
+    <string name="error_over_count_default">คุณสามารถเลือกได้สูงสุด</string>
+    <string name="error_over_count">คุณสามารถเลือกได้สูงสุดถึง%1$dไฟล์มีเดียเท่านั้น</string>
+    <string name="error_under_quality">ภายใต้คุณภาพ</string>
+    <string name="error_over_quality">เหนือคุณภาพ</string>
+    <string name="error_file_type">ประเภทไฟล์ที่ไม่สนับสนุน</string>
+    <string name="error_type_conflict">ไม่สามารถเลือกภาพและวิดีโอในเวลาเดียวกันได้</string>
+    <string name="error_no_video_activity">ไม่พบแอปพลิเคชันที่สนับสนุนตัวอย่างวิดีโอ</string>
 
-    <string name="crop_clipping">loading...</string>
+    <string name="crop_clipping">โหลด...</string>
 </resources>
