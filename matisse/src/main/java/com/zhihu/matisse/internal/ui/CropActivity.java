@@ -13,8 +13,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.opengl.GLES10;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -88,6 +90,7 @@ public class CropActivity extends BaseActivity implements View.OnClickListener {
         try {
             int sampleSize = calculateBitmapSampleSize(mUri);
             is = getContentResolver().openInputStream(mUri);
+            CropImageView.RotateDegrees angle = getRotateAngle();
             BitmapFactory.Options option = new BitmapFactory.Options();
             option.inSampleSize = sampleSize;
             Bitmap sizeBitmap = BitmapFactory.decodeStream(is, null, option);
@@ -96,6 +99,9 @@ public class CropActivity extends BaseActivity implements View.OnClickListener {
                 return;
             }
             mCropImageView.setImageBitmap(sizeBitmap);
+            if (angle != null) {
+                mCropImageView.rotateImage(angle);
+            }
             mBottomBar.setVisibility(View.VISIBLE);
         } catch (Exception e) {
             Toast.makeText(this, R.string.error_file_type, Toast.LENGTH_SHORT).show();
@@ -104,7 +110,7 @@ public class CropActivity extends BaseActivity implements View.OnClickListener {
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         } finally {
-            if(is != null) {
+            if (is != null) {
                 try {
                     is.close();
                 } catch (IOException e) {
@@ -112,6 +118,46 @@ public class CropActivity extends BaseActivity implements View.OnClickListener {
                 }
             }
         }
+    }
+
+    private CropImageView.RotateDegrees getRotateAngle() {
+        CropImageView.RotateDegrees angle = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            InputStream is = null;
+            ExifInterface exif = null;
+            try {
+                is = getContentResolver().openInputStream(mUri);
+                exif = new ExifInterface(is);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (is != null) {
+                    try {
+                        is.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            if (exif != null) {
+                // 读取图片中相机方向信息
+                int ori = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION,
+                        ExifInterface.ORIENTATION_UNDEFINED);
+                // 计算旋转角度
+                switch (ori) {
+                    case ExifInterface.ORIENTATION_ROTATE_90:
+                        angle = CropImageView.RotateDegrees.ROTATE_90D;
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_180:
+                        angle = CropImageView.RotateDegrees.ROTATE_180D;
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_270:
+                        angle = CropImageView.RotateDegrees.ROTATE_270D;
+                        break;
+                }
+            }
+        }
+        return angle;
     }
 
     private int calculateBitmapSampleSize(Uri bitmapUri) throws IOException {
@@ -122,7 +168,7 @@ public class CropActivity extends BaseActivity implements View.OnClickListener {
             is = getContentResolver().openInputStream(bitmapUri);
             BitmapFactory.decodeStream(is, null, options); // Just get image size
         } finally {
-            if(is != null) {
+            if (is != null) {
                 is.close();
             }
         }
