@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="album_name_all">Tất cả các kênh truyền thông</string>
+   <string name="button_preview">Xem trước</string>
+   <string name="button_apply_default">Ứng dụng</string>
+   <string name="button_apply">Áp dụng (%1$d)</string>
+   <string name="button_back">Trở lại</string>
+   <string name="photo_grid_capture">Máy ảnh</string>
+   <string name="empty_text">Chưa có phương tiện</string>
+   <string name="button_ok">được</string>
+   <string name="error_over_count_default">Bạn đã đạt đến mức tối đa có thể chọn</string>
+   <string name="error_over_count">Bạn chỉ có thể chọn tối đa %1$d tệp phương tiện</string>
+   <string name="error_under_quality">Dưới chất lượng</string>
+   <string name="error_over_quality">Hơn chất lượng</string>
+   <string name="error_file_type">Loại tập tin không được hỗ trợ</string>
+   <string name="error_type_conflict">Không thể chọn hình ảnh và video cùng một lúc</string>
+   <string name="error_no_video_activity">Không tìm thấy ứng dụng nào hỗ trợ xem trước video</string>
+   <string name="crop_clipping">tải...</string>
+</resources>

@@ -16,7 +16,6 @@
   -->
 <resources>
     <string name="album_name_all">All Media</string>
-
     <string name="button_preview">Preview</string>
     <string name="button_apply_default">Apply</string>
     <string name="button_apply">Apply(%1$d)</string>
@@ -24,7 +23,6 @@
     <string name="photo_grid_capture">Camera</string>
     <string name="empty_text">No media yet</string>
     <string name="button_ok">OK</string>
-
     <string name="error_over_count_default">You have reached max selectable</string>
     <string name="error_over_count">You can only select up to %1$d media files</string>
     <string name="error_under_quality">Under quality</string>
@@ -32,6 +30,5 @@
     <string name="error_file_type">Unsupported file type</string>
     <string name="error_type_conflict">Can\'t select images and videos at the same time</string>
     <string name="error_no_video_activity">No App found supporting video preview</string>
-
     <string name="crop_clipping">loading...</string>
 </resources>
