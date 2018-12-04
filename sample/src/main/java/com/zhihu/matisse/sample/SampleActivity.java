@@ -15,6 +15,7 @@
  */
 package com.zhihu.matisse.sample;
 
+import com.isseiaoki.simplecropview.CropImageView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
@@ -126,6 +127,8 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                                     ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
                                             .singleImageCrop(true)
                                             .showSingleMediaType(true)
+                                            .cropMode(CropImageView.CropMode.RATIO_9_16)
+                                            .minFrameSizeInDp(80)
                                             .imageEngine(new GlideEngine())
                                             .forResult(REQUEST_CODE_CHOOSE);
                                     break;

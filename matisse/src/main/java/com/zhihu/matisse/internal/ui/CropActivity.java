@@ -81,6 +81,12 @@ public class CropActivity extends BaseActivity implements View.OnClickListener {
 
         mUri = getIntent().getParcelableExtra(ARGS_ITEM);
         mCropImageView = (CropImageView) findViewById(cropImageView);
+        if (SelectionSpec.getInstance().cropMode != null) {
+            mCropImageView.setCropMode(SelectionSpec.getInstance().cropMode);
+        }
+        if (SelectionSpec.getInstance().minFrameSizeInDp > 0) {
+            mCropImageView.setMinFrameSizeInDp(SelectionSpec.getInstance().minFrameSizeInDp);
+        }
         mBottomBar = findViewById(R.id.bottom_toolbar);
         findViewById(R.id.button_back).setOnClickListener(this);
         findViewById(R.id.button_apply).setOnClickListener(this);

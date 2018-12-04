@@ -16,6 +16,7 @@
  */
 package com.zhihu.matisse.internal.entity;
 
+import com.isseiaoki.simplecropview.CropImageView;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.R;
 import com.zhihu.matisse.engine.ImageEngine;
@@ -74,6 +75,10 @@ public final class SelectionSpec {
 
     public boolean hasInited;
 
+    public CropImageView.CropMode cropMode;
+
+    public int minFrameSizeInDp;
+
     public OnSelectedListener onSelectedListener;
 
     public OnCheckedListener onCheckedListener;
@@ -115,6 +120,8 @@ public final class SelectionSpec {
         imageEngine = new GlideEngine();
         hasInited = true;
         locale = null;
+        cropMode = CropImageView.CropMode.SQUARE;
+        minFrameSizeInDp = 240;
     }
 
     public boolean singleSelectionModeEnabled() {

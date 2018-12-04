@@ -16,6 +16,7 @@
  */
 package com.zhihu.matisse;
 
+import com.isseiaoki.simplecropview.CropImageView;
 import com.zhihu.matisse.engine.ImageEngine;
 import com.zhihu.matisse.filter.Filter;
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
@@ -326,6 +327,16 @@ public final class SelectionCreator {
      */
     public SelectionCreator imageEngine(ImageEngine imageEngine) {
         mSelectionSpec.imageEngine = imageEngine;
+        return this;
+    }
+
+    public SelectionCreator cropMode(CropImageView.CropMode cropMode) {
+        mSelectionSpec.cropMode = cropMode;
+        return this;
+    }
+
+    public SelectionCreator minFrameSizeInDp(int minFrameSizeInDp) {
+        mSelectionSpec.minFrameSizeInDp = minFrameSizeInDp;
         return this;
     }
 
