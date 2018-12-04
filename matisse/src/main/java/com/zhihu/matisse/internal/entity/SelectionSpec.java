@@ -79,6 +79,8 @@ public final class SelectionSpec {
 
     public int minFrameSizeInDp;
 
+    public float initialFrameScale;
+
     public OnSelectedListener onSelectedListener;
 
     public OnCheckedListener onCheckedListener;
@@ -122,6 +124,7 @@ public final class SelectionSpec {
         locale = null;
         cropMode = CropImageView.CropMode.SQUARE;
         minFrameSizeInDp = 240;
+        initialFrameScale = 0.75f;
     }
 
     public boolean singleSelectionModeEnabled() {

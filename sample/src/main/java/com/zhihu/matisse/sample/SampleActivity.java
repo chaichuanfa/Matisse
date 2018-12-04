@@ -128,6 +128,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                             .singleImageCrop(true)
                                             .showSingleMediaType(true)
                                             .cropMode(CropImageView.CropMode.RATIO_9_16)
+                                            .initialFrameScale(0.5f)
                                             .minFrameSizeInDp(80)
                                             .imageEngine(new GlideEngine())
                                             .forResult(REQUEST_CODE_CHOOSE);

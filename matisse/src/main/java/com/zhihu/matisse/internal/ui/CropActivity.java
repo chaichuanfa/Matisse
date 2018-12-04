@@ -87,6 +87,9 @@ public class CropActivity extends BaseActivity implements View.OnClickListener {
         if (SelectionSpec.getInstance().minFrameSizeInDp > 0) {
             mCropImageView.setMinFrameSizeInDp(SelectionSpec.getInstance().minFrameSizeInDp);
         }
+        if (SelectionSpec.getInstance().initialFrameScale != 0) {
+            mCropImageView.setInitialFrameScale(SelectionSpec.getInstance().initialFrameScale);
+        }
         mBottomBar = findViewById(R.id.bottom_toolbar);
         findViewById(R.id.button_back).setOnClickListener(this);
         findViewById(R.id.button_apply).setOnClickListener(this);

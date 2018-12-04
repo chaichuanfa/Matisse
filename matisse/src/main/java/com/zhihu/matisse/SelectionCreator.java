@@ -340,6 +340,11 @@ public final class SelectionCreator {
         return this;
     }
 
+    public SelectionCreator initialFrameScale(float initialFrameScale) {
+        mSelectionSpec.initialFrameScale = initialFrameScale;
+        return this;
+    }
+
     /**
      * Set listener for callback immediately when user select or unselect something.
      * <p>
