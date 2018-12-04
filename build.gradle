@@ -62,8 +62,8 @@ ext {
     supportLibVersion = '27.0.2'
     minSdkVersion = 14
     targetSdkVersion = 24
-    versionCode = 9
+    versionCode = 10
 
     groupName = 'com.tongzhuo'
-    releaseVersionName = "1.0.9.3"
+    releaseVersionName = "1.0.9.4"
 }
