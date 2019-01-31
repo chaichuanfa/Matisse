@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 apply plugin: 'com.android.library'
-apply plugin: 'checkstyle'
-apply from: "$rootProject.rootDir.absolutePath/gradle/publish.gradle"
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -45,21 +44,10 @@ dependencies {
     compile "com.android.support:recyclerview-v7:${rootProject.ext.supportLibVersion}"
 
     compile 'it.sephiroth.android.library.imagezoom:library:1.0.4'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.isseiaoki:simplecropview:1.1.7'
     provided 'com.github.bumptech.glide:glide:3.7.0'
     provided 'com.squareup.picasso:picasso:2.5.2'
 }
-
-//task checkstyle(type: Checkstyle) {
-//    description 'Runs Checkstyle inspection against matisse sourcesets.'
-//    group = 'Code Quality'
-//    configFile rootProject.file('checkstyle.xml')
-//    ignoreFailures = false
-//    showViolations true
-//    classpath = files()
-//    source 'src/main/java'
-//}
 
 tasks.withType(Javadoc) {
     options.addStringOption('Xdoclint:none', '-quiet')
@@ -67,4 +55,11 @@ tasks.withType(Javadoc) {
     options.addStringOption('charSet', 'UTF-8')
 }
 
-apply from: 'https://raw.githubusercontent.com/chaichuanfa/BintrayUpload/master/bintrayUpload.gradle'
+publish {
+    userOrg = 'felix0503'
+    groupId = 'com.felix'
+    artifactId = 'matisse'
+    publishVersion = rootProject.ext.releaseVersionName
+    desc = 'Image Selector'
+    website = 'https://github.com/chaichuanfa/Matisse'
+}
