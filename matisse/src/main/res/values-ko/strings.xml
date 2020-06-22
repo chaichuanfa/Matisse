@@ -3,7 +3,7 @@
    <string name="album_name_all">전체보기</string>
    <string name="button_preview">미리보기</string>
    <string name="button_apply_default">카메라</string>
-   <string name="button_apply">비디오 미리보기를 지원하는 앱을 찾을 수 없습니다.</string>
+   <string name="button_apply">Apply(%1$d)</string>
    <string name="button_back">이미지와 비디오는 동시에 선택 할 수 없습니다.</string>
    <string name="photo_grid_capture">적용</string>
    <string name="empty_text">적용(%1$d)</string>

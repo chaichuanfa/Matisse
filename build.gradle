@@ -22,8 +22,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.novoda:bintray-release:0.9'
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.novoda:bintray-release:0.9.2'
     }
 }
 
@@ -42,13 +42,12 @@ task clean(type: Delete) {
 }
 
 ext {
-    androidCompileSdkVersion = 27
-    androidBuildToolsVersion = '27.0.2'
-    supportLibVersion = '27.0.2'
+    androidCompileSdkVersion = 29
+    androidBuildToolsVersion = '29.0.2'
+    supportLibVersion = '29.0.2'
     minSdkVersion = 14
-    targetSdkVersion = 24
-    versionCode = 10
+    targetSdkVersion = 29
+    versionCode = 11
 
-    groupName = 'com.tongzhuo'
-    releaseVersionName = "1.1.0"
+    releaseVersionName = "1.2.0"
 }

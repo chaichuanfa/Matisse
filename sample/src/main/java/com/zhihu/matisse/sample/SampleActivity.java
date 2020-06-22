@@ -29,9 +29,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +38,9 @@ import android.widget.Toast;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -66,7 +66,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(final View v) {
         RxPermissions rxPermissions = new RxPermissions(this);
-        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
                 .subscribe(new Observer<Boolean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -98,14 +98,16 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                 case R.id.dracula:
                                     Matisse.from(SampleActivity.this)
                                             .choose(MimeType.ofImage())
-                                            .theme(R.style.Matisse_Tongzhuo)
-                                            .countable(false)
-                                            .maxSelectable(1)
-                                            .spanCount(3)
-                                            .thumbnailScale(0.85f)
                                             .singleImageCrop(false)
                                             .singleMediaPreview(false)
                                             .showSingleMediaType(true)
+                                            .capture(true)
+                                            .captureStrategy(
+                                                    new CaptureStrategy(true,
+                                                            "com.zhihu.matisse.sample.fileprovider"))
+                                            .openCameraNow(true)
+                                            .restrictOrientation(
+                                                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
                                             .imageEngine(new PicassoEngine())
                                             .forResult(REQUEST_CODE_CHOOSE);
                                     break;

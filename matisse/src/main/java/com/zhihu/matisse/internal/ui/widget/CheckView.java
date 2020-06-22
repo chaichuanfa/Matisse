@@ -28,10 +28,11 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.core.content.res.ResourcesCompat;
 
 public class CheckView extends View {
 

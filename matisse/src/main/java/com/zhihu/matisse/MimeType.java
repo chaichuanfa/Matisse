@@ -20,7 +20,6 @@ import com.zhihu.matisse.internal.utils.PhotoMetadataUtils;
 
 import android.content.ContentResolver;
 import android.net.Uri;
-import android.support.v4.util.ArraySet;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
@@ -28,6 +27,8 @@ import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.Locale;
 import java.util.Set;
+
+import androidx.collection.ArraySet;
 
 /**
  * MIME Type enumeration to restrict selectable media on the selection activity. Matisse only supports images and
@@ -110,12 +111,34 @@ public enum MimeType {
         return EnumSet.of(JPEG, PNG, GIF, BMP, WEBP);
     }
 
+    public static Set<MimeType> ofImage(boolean onlyGif) {
+        return EnumSet.of(GIF);
+    }
+
+    public static Set<MimeType> ofGif() {
+        return ofImage(true);
+    }
+
     public static Set<MimeType> ofStaticImage() {
         return EnumSet.of(JPEG, PNG, BMP);
     }
 
     public static Set<MimeType> ofVideo() {
         return EnumSet.of(MPEG, MP4, QUICKTIME, THREEGPP, THREEGPP2, MKV, WEBM, TS, AVI);
+    }
+
+    public static boolean isImage(String mimeType) {
+        if (mimeType == null) {
+            return false;
+        }
+        return mimeType.startsWith("image");
+    }
+
+    public static boolean isVideo(String mimeType) {
+        if (mimeType == null) {
+            return false;
+        }
+        return mimeType.startsWith("video");
     }
 
     private static Set<String> arraySetOf(String... suffixes) {

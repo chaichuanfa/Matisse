@@ -38,10 +38,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "com.android.support:support-v4:${rootProject.ext.supportLibVersion}"
-    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    compile "com.android.support:support-annotations:${rootProject.ext.supportLibVersion}"
-    compile "com.android.support:recyclerview-v7:${rootProject.ext.supportLibVersion}"
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.annotation:annotation:1.1.0"
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
 
     compile 'it.sephiroth.android.library.imagezoom:library:1.0.4'
     compile 'com.isseiaoki:simplecropview:1.1.7'
@@ -57,7 +56,7 @@ tasks.withType(Javadoc) {
 
 publish {
     userOrg = 'felix0503'
-    groupId = 'com.felix'
+    groupId = 'com.github.chaichuanfa'
     artifactId = 'matisse'
     publishVersion = rootProject.ext.releaseVersionName
     desc = 'Image Selector'

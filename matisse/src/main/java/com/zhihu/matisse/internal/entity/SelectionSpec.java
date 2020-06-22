@@ -26,11 +26,12 @@ import com.zhihu.matisse.listener.OnCheckedListener;
 import com.zhihu.matisse.listener.OnSelectedListener;
 
 import android.content.pm.ActivityInfo;
-import android.support.annotation.StyleRes;
 
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+
+import androidx.annotation.StyleRes;
 
 public final class SelectionSpec {
 
@@ -142,6 +143,10 @@ public final class SelectionSpec {
 
     public boolean onlyShowVideos() {
         return showSingleMediaType && MimeType.ofVideo().containsAll(mimeTypeSet);
+    }
+
+    public boolean onlyShowGif() {
+        return showSingleMediaType && MimeType.ofGif().equals(mimeTypeSet);
     }
 
     public boolean singleMediaClosePreview() {

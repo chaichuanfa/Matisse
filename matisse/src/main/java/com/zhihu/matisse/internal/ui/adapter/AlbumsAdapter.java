@@ -22,8 +22,6 @@ import com.zhihu.matisse.internal.entity.SelectionSpec;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +29,7 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.File;
+import androidx.core.content.ContextCompat;
 
 public class AlbumsAdapter extends CursorAdapter {
 
@@ -65,7 +63,6 @@ public class AlbumsAdapter extends CursorAdapter {
         SelectionSpec.getInstance().imageEngine
                 .loadThumbnail(context, context.getResources().getDimensionPixelSize(R
                                 .dimen.media_grid_size), mPlaceholder,
-                        (ImageView) view.findViewById(R.id.album_cover),
-                        Uri.fromFile(new File(album.getCoverPath())));
+                        (ImageView) view.findViewById(R.id.album_cover), album.getCoverUri());
     }
 }

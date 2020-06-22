@@ -20,12 +20,13 @@ import com.zhihu.matisse.ui.MatisseActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Set;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 /**
  * Entry for Matisse's media selection.

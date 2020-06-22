@@ -16,19 +16,20 @@
  */
 package com.zhihu.matisse.internal.model;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
-
 import com.zhihu.matisse.internal.entity.Album;
 import com.zhihu.matisse.internal.loader.AlbumMediaLoader;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.os.Bundle;
+
 import java.lang.ref.WeakReference;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
 public class AlbumMediaCollection implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final int LOADER_ID = 2;

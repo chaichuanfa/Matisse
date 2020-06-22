@@ -21,13 +21,14 @@ import com.zhihu.matisse.internal.entity.SelectionSpec;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MediaGrid extends SquareFrameLayout implements View.OnClickListener {
 

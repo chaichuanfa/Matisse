@@ -26,9 +26,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.FileProvider;
-import android.support.v4.os.EnvironmentCompat;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,6 +34,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.core.content.FileProvider;
+import androidx.core.os.EnvironmentCompat;
+import androidx.fragment.app.Fragment;
 
 public class MediaStoreCompat {
 
@@ -121,7 +122,9 @@ public class MediaStoreCompat {
         if (mCaptureStrategy.isPublic) {
             storageDir = Environment.getExternalStoragePublicDirectory(
                     Environment.DIRECTORY_PICTURES);
-            if (!storageDir.exists()) storageDir.mkdirs();
+            if (!storageDir.exists()) {
+                storageDir.mkdirs();
+            }
         } else {
             storageDir = mContext.get().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         }
