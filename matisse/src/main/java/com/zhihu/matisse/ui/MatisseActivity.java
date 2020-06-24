@@ -52,6 +52,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import androidx.annotation.Nullable;
@@ -264,6 +265,11 @@ public class MatisseActivity extends BaseActivity implements
                 updateBottomToolbar();
             }
         } else if (requestCode == REQUEST_CODE_CAPTURE) {
+            File file = new File(mMediaStoreCompat.getCurrentPhotoPath());
+            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
+                    Uri.fromFile(file));
+            sendBroadcast(mediaScanIntent);
+
             // Just pass the data back to previous calling Activity.
             Uri contentUri = mMediaStoreCompat.getCurrentPhotoUri();
             if (mSpec.singleImageCropEnable()) {
