@@ -106,6 +106,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                                     new CaptureStrategy(true,
                                                             "com.zhihu.matisse.sample.fileprovider"))
                                             .openCameraNow(true)
+                                            .captureFront(true)
                                             .restrictOrientation(
                                                     ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
                                             .imageEngine(new PicassoEngine())

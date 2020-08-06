@@ -64,6 +64,8 @@ public final class SelectionSpec {
 
     public boolean capture;
 
+    public boolean captureFront;
+
     public CaptureStrategy captureStrategy;
 
     public int spanCount;
@@ -114,6 +116,7 @@ public final class SelectionSpec {
         filters = null;
         capture = false;
         captureStrategy = null;
+        captureFront = false;
         spanCount = 3;
         gridExpectedSize = 0;
         thumbnailScale = 0.5f;

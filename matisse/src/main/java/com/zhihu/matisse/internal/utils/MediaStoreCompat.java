@@ -16,6 +16,7 @@
 package com.zhihu.matisse.internal.utils;
 
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
+import com.zhihu.matisse.internal.entity.SelectionSpec;
 
 import android.app.Activity;
 import android.content.Context;
@@ -77,7 +78,12 @@ public class MediaStoreCompat {
     }
 
     public void dispatchCaptureIntent(Context context, int requestCode) {
-        Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent captureIntent;
+        if (SelectionSpec.getInstance().captureFront) {
+            captureIntent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+        } else {
+            captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        }
         if (captureIntent.resolveActivity(context.getPackageManager()) != null) {
             File photoFile = null;
             try {
@@ -102,6 +108,12 @@ public class MediaStoreCompat {
                                 Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                                         | Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     }
+                }
+                if (SelectionSpec.getInstance().captureFront) {
+                    //前置摄像头
+                    captureIntent.putExtra("android.intent.extras.CAMERA_FACING", 1);
+                    captureIntent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1);
+                    captureIntent.putExtra("android.intent.extra.USE_FRONT_CAMERA", true);
                 }
                 if (mFragment != null) {
                     mFragment.get().startActivityForResult(captureIntent, requestCode);
@@ -129,7 +141,7 @@ public class MediaStoreCompat {
             storageDir = mContext.get().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         }
 
-        if(!storageDir.exists()) {
+        if (!storageDir.exists()) {
             storageDir.mkdirs();
         }
 

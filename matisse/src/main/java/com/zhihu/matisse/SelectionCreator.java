@@ -247,6 +247,16 @@ public final class SelectionCreator {
     }
 
     /**
+     * 开前置摄像头
+     * @param captureFront
+     * @return
+     */
+    public SelectionCreator captureFront(boolean captureFront) {
+        mSelectionSpec.captureFront = captureFront;
+        return this;
+    }
+
+    /**
      * Capture strategy provided for the location to save photos including internal and external
      * storage and also a authority for {@link androidx.core.content.FileProvider}.
      *
