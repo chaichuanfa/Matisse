@@ -78,12 +78,7 @@ public class MediaStoreCompat {
     }
 
     public void dispatchCaptureIntent(Context context, int requestCode) {
-        Intent captureIntent;
-        if (SelectionSpec.getInstance().captureFront) {
-            captureIntent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-        } else {
-            captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        }
+        Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (captureIntent.resolveActivity(context.getPackageManager()) != null) {
             File photoFile = null;
             try {
